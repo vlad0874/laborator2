@@ -23,6 +23,31 @@ namespace Porime_Vlad_Lab2
         public MainWindow()
         {
             InitializeComponent();
+            private DoughnutMachine myDoughnutMachine;
+        private void frmMain_Loaded(object sender, RoutedEventArgs e)
+        {
+            myDoughnutMachine = new DoughnutMachine();
         }
+
+        private int mRaisedGlazed;
+        private int mRaisedSugar;
+        private int mFilledLemon;
+        private int mFilledChocolate;
+        private int mFilledVanilla;
+
+
+        private void glazedToolStripMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            glazedToolStripMenuItem.IsChecked = true;
+            sugarToolStripMenuItem.IsChecked = false;
+            myDoughnutMachine.MakeDoughnuts(DoughnutType.Glazed);
+        }
+        private void sugarToolStripMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            glazedToolStripMenuItem.IsChecked = false;
+            sugarToolStripMenuItem.IsChecked = true;
+            myDoughnutMachine.MakeDoughnuts(DoughnutType.Sugar);
+        }
+    }
     }
 }
